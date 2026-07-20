@@ -86,21 +86,22 @@ export default function Navbar() {
           </nav>
 
           {/* Actions: Theme Toggle & Admin Login */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <button
               onClick={toggleDarkMode}
-              className="p-2.5 rounded-full border border-card-border hover:bg-card-border transition-colors text-foreground/80 hover:text-luxury-gold cursor-pointer"
+              className="p-2 sm:p-2.5 rounded-full border border-card-border hover:bg-card-border transition-colors text-foreground/80 hover:text-luxury-gold cursor-pointer"
               aria-label="Toggle Dark Mode"
             >
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {darkMode ? <Sun className="w-4 h-4 sm:w-5 sm:h-5" /> : <Moon className="w-4 h-4 sm:w-5 sm:h-5" />}
             </button>
 
             <Link
               href="/admin-login"
-              className="hidden sm:flex items-center space-x-1 p-2 rounded-lg text-xs font-semibold uppercase tracking-wider text-foreground/60 hover:text-luxury-gold transition-colors"
+              className="flex items-center space-x-1 p-2 rounded-lg text-xs font-semibold uppercase tracking-wider text-foreground/60 hover:text-luxury-gold transition-colors"
+              title="Admin Portal"
             >
-              <Lock className="w-3.5 h-3.5" />
-              <span>Admin Portal</span>
+              <Lock className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-luxury-gold sm:text-inherit" />
+              <span className="hidden sm:inline">Admin Portal</span>
             </Link>
 
             <Link
