@@ -11,9 +11,9 @@ export async function POST(request: Request) {
     
     // Check if email notifications are enabled and configured
     const enabled = settings?.email_notifications_enabled || false;
-    const apiKey = settings?.resend_api_key || process.env.RESEND_API_KEY;
-    const toEmail = settings?.recipient_email || settings?.email || 'farook@uaepropertyconnect.ae';
-    const fromEmail = settings?.sender_email || 'onboarding@resend.dev';
+    const apiKey = process.env.RESEND_API_KEY;
+    const toEmail = process.env.NOTIFICATION_EMAIL || 'farookshaji246@gmail.com';
+    const fromEmail = process.env.SENDER_EMAIL || 'onboarding@resend.dev';
 
     console.log('--- EMAIL DISPATCH TRIGGERED ---');
     console.log('Enabled:', enabled);

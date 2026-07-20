@@ -245,47 +245,9 @@ export default function SettingsPage() {
                 Enable Instant Email Alerts on submissions
               </label>
             </div>
-
-            {settingsForm.email_notifications_enabled && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div>
-                  <label className="block text-xs font-semibold text-foreground/60 uppercase tracking-wider mb-2">Resend API Key</label>
-                  <input
-                    type="password"
-                    required
-                    value={settingsForm.resend_api_key}
-                    onChange={e => setSettingsForm({ ...settingsForm, resend_api_key: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-luxury-gold text-xs"
-                    placeholder="re_..."
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-foreground/60 uppercase tracking-wider mb-2">Recipient Email</label>
-                  <input
-                    type="email"
-                    required
-                    value={settingsForm.recipient_email}
-                    onChange={e => setSettingsForm({ ...settingsForm, recipient_email: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-luxury-gold text-xs"
-                    placeholder="farook@uaepropertyconnect.ae"
-                  />
-                </div>
-                <div className="sm:col-span-2">
-                  <label className="block text-xs font-semibold text-foreground/60 uppercase tracking-wider mb-2">Sender Email (verified domain domain/onboarding)</label>
-                  <input
-                    type="text"
-                    required
-                    value={settingsForm.sender_email}
-                    onChange={e => setSettingsForm({ ...settingsForm, sender_email: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-luxury-gold text-xs"
-                    placeholder="onboarding@resend.dev"
-                  />
-                  <p className="text-[10px] text-foreground/45 mt-1.5">
-                    Using Resend sandbox? Use <span className="font-mono">onboarding@resend.dev</span> as sender, and the recipient must be your Resend account email.
-                  </p>
-                </div>
-              </div>
-            )}
+            <p className="text-[10px] text-foreground/45">
+              Credentials are loaded securely from environment variables, keeping your Resend API configurations completely hidden and safe.
+            </p>
           </div>
 
           <div className="border-t border-card-border pt-6 space-y-4">
