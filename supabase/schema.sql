@@ -150,6 +150,10 @@ create table if not exists public.settings (
     website_title text default 'Farook UAE Property Connect - Private Lead Management' not null,
     website_description text default 'Submit your property details or buy requirements privately. Premium luxury real estate services in Dubai and UAE.' not null,
     social_media_links jsonb default '{}'::jsonb not null,
+    email_notifications_enabled boolean default false not null,
+    resend_api_key text,
+    recipient_email text,
+    sender_email text default 'onboarding@resend.dev' not null,
     updated_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 
@@ -163,8 +167,8 @@ create policy "Only admin can update settings" on public.settings
     for all using (true);
 
 -- Seed initial settings
-insert into public.settings (id, company_name, phone, email, office_address, website_title, website_description)
-values ('global', 'Farook UAE Property Connect', '+971 50 123 4567', 'info@farookproperties.com', 'Marina Plaza, Suite 2402, Dubai Marina, Dubai, UAE', 'Farook UAE Property Connect', 'Private Lead Management Platform')
+insert into public.settings (id, company_name, phone, email, office_address, website_title, website_description, email_notifications_enabled, resend_api_key, recipient_email, sender_email)
+values ('global', 'Farook UAE Property Connect', '+971 50 123 4567', 'info@farookproperties.com', 'Marina Plaza, Suite 2402, Dubai Marina, Dubai, UAE', 'Farook UAE Property Connect', 'Private Lead Management Platform', false, '', '', 'onboarding@resend.dev')
 on conflict (id) do nothing;
 
 
