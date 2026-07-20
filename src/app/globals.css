@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-dark: #0B192C;
+  --color-primary-navy: #1E3E62;
+  --color-luxury-gold: #D4AF37;
+  --color-luxury-gold-hover: #AA7C11;
+  --color-luxury-gold-light: #F3E5AB;
+  --color-luxury-gray: #F8F9FA;
+  --color-luxury-slate: #E2E8F0;
+  
+  --font-sans: var(--font-geist-sans), Inter, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0b192c;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(226, 232, 240, 0.8);
+  --header-bg: rgba(255, 255, 255, 0.85);
+}
+
+.dark {
+  --background: #070e17;
+  --foreground: #f8f9fa;
+  --card-bg: rgba(11, 25, 44, 0.6);
+  --card-border: rgba(30, 62, 98, 0.4);
+  --header-bg: rgba(7, 14, 23, 0.85);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Glassmorphism Styles */
+.glass-effect {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+}
+
+.glass-header {
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--card-border);
+}
+
+/* Gold Text Gradient */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA7C11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold Background Gradient */
+.gold-bg-gradient {
+  background: linear-gradient(135deg, #AA7C11 0%, #D4AF37 50%, #F3E5AB 100%);
+}
+
+/* Dark Navy Gradient */
+.navy-bg-gradient {
+  background: linear-gradient(135deg, #070e17 0%, #0B192C 60%, #1E3E62 100%);
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #AA7C11;
+}
+
+/* Page loading spinner */
+.loader {
+  border-top-color: #D4AF37;
+  animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Custom subtle animations */
+.hover-gold-glow:hover {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
